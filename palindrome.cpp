@@ -1,22 +1,31 @@
 #include <iostream>
+#include<string.h>
 
 using namespace std;
 
 int main()
 {
-    int rev=0,dig,num;
-    cout<<"enter the no. to be checked "<<endl;
-    cin>>num;
-    int num2=num;
-    while(num!=0)
+    int i,j,len,flag;
+    char str[20];
+    cout<<"enter the string "<<endl;
+    cin.getline(str,20);
+    len=strlen(str);
+    cout<<"string is  "<<str<<endl;
+    cout<<"length is  "<<len<<endl;
+    for(i=0,j=len-1;i<len/2;++i,--j)
     {
-        dig=num%10;
-        rev=(rev*10)+dig;
-        num=num/10;
+        if(str[i]!=str[j])
+        {
+            flag=0;
+            break;
+        }
+        else
+            continue;
+
     }
-    if(num2==rev)
-        cout<<"no. is palindrome  "<<num2<<"rev "<<rev<<endl;
+    if(flag==0)
+        cout<<"not palindrome "<<endl;
     else
-        cout<<"not palindrome"<<endl;
+        cout<<"palindrome  "<<endl;
     return 0;
 }
